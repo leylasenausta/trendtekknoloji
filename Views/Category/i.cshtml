@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TrendTeknoloji.DB.Categories>
+
+@{
+    ViewBag.Title = "Kategoriler";
+}
+
+
+
+<p>
+    <a href="@Url.Action("Edit")" class="btn" style="color:white">Yeni Kategori </a>
+
+</p>
+<table class="table">
+    <tr>
+        <th style="color:brown">
+            @Html.DisplayName("Kategori adı")
+        </th>
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="color:brown">
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+
+       
+
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.id})" class="btn" style="color:white">Düzenle</a>
+
+            <button type="button" onclick="Deletecat('@Url.Action("Delete", new { id=item.id })')">Sil</button>
+            @*@Html.ActionLink("Sil", "Delete", new { id=item.id })*@
+        </td>         
+    </tr>
+}
+
+</table>
+
+<script>
+    function Deletecat(url) {
+        if (confirm("Are you sure ??")) {
+            location.href = url;
+        }
+    }
+</script>

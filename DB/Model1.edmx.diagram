@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ebdea25a083d47b1b9bc8db3b5aa373c" Name="Diagram1">
+        <EntityTypeShape EntityType="TrendTeknolojiModel.Haber" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrendTeknolojiModel.Categories" Width="1.5" PointX="0.75" PointY="5.5" />
+        <AssociationConnector Association="TrendTeknolojiModel.FK_Haber_Categories" />
+        <EntityTypeShape EntityType="TrendTeknolojiModel.Members_Type" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="TrendTeknolojiModel.Members" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="TrendTeknolojiModel.FK_Members_Members_Type" />
+        <EntityTypeShape EntityType="TrendTeknolojiModel.Comment" Width="1.5" PointX="5.25" PointY="3.125" />
+        <AssociationConnector Association="TrendTeknolojiModel.FK_Comment_Haber" />
+        <AssociationConnector Association="TrendTeknolojiModel.FK_Comment_Members" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,27 @@
+﻿@model TrendTeknoloji.DB.Haber
+    @{ 
+        if (string.IsNullOrEmpty(Model.imagename))
+        {
+            Model.imagename = "image/300x150.png";
+        }
+
+     
+    }
+
+
+    
+        <div class="col-md-4 my-5">
+
+            <div class="card bg-light mb-3" style="max-width: 18rem;height:400px">
+                <img src="~/@Model.imagename" alt=".." style="height:200px;" class="img img-responsive">
+                <div class="card-body">
+                    <h5 class="card-title" style="height:40px">@Model.Name</h5>
+                    <p class="card-text" style="height:70px; overflow:hidden">@Model.Description</p>
+                    <a href="~/i/Haber/@Model.id" class="btn btn-outline-dark btn-sm" style="position:absolute; margin-bottom:10px">Devamını Oku</a>
+                </div>
+            </div>
+
+        </div>
+
+  
+

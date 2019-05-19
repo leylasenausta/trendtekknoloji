@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TrendTeknoloji.DB.Haber>
+
+@{
+    ViewBag.Title = "Haber";
+}
+
+
+
+<p>
+    <a href="@Url.Action("Edit")" class="btn" style="color:white">Yeni Haber</a>
+   
+</p>
+<table class="table">
+    <tr>
+        <th >
+            @Html.DisplayName("Haber Başlığı")
+        </th>
+           
+        <th>
+            @Html.DisplayName("Haber Kategorisi")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="color:#FF7F50">
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+   
+        <td style="color:#FF7F50">
+            @Html.DisplayFor(modelItem => item.Categories.Name)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.id})" class="btn" style="color:white">Düzenle</a>
+          
+            <button type="button" onclick="DeleteHaber('@Url.Action("Delete", new { id=item.id })')">Sil</button>
+            @*@Html.ActionLink("Sil", "Delete", new { id=item.id })*@
+        </td>
+    </tr>
+}
+
+</table>
+<script>
+    function DeleteHaber(url)
+    {
+        if (confirm("Are you sure ??"))
+        {
+            location.href = url;
+        }
+    }
+</script>

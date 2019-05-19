@@ -1,0 +1,13 @@
+﻿@model List<TrendTeknoloji.DB.Categories>
+
+
+<div class="list-group" style="font-family: 'Noto Sans', sans-serif;">
+
+    <a href="@Url.Action("index", "i")" class="list-group-item list-group-item-action" style="background-color: #d9d9d9">HABERLER</a>
+    @foreach (var cat in Model)
+    {
+        <a href="@Url.Action("index","i", new { id=cat.id} )" class="list-group-item list-group-item-action">@cat.Name</a>
+    }
+
+
+</div>

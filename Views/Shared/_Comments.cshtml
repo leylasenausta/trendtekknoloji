@@ -1,0 +1,52 @@
+﻿@model TrendTeknoloji.Models.i.CommentModels
+
+@{ 
+    string defaultImage = "image/resim1.png";
+}
+<div class="row my-5">
+    <div class="col-md-12">
+        <div class="form-group">
+            <h3 style="color:#f2f2f2">Yorumlar</h3>
+            <hr>
+        </div>
+        <div class="form-group">
+            @foreach (var item in Model.Comments.OrderBy(x => x.AddedDate).ToList())
+            {
+                <div class="media my-3">
+                    <a href="~/Account/Profil/@item.Members.id" class="mr-3">
+                        <img src="~/@(string.IsNullOrEmpty(item.Members.Profilimagename)?defaultImage:item.Members.Profilimagename)" class="rounded-circle img thumbnail" style="height:80px;">
+                    </a>
+                    <div class="media-body my-2" style="color:#d9d9d9">
+                        <h5 style="color:#f2f2f2">@($"{item.Members.Name} {item.Members.Surname}")</h5>
+                        @item.Text
+                    </div>
+                </div>
+
+            }
+
+        </div>
+
+        @if (Session["LogonUser"] != null)
+        {
+            using (Html.BeginForm("Haber","i",FormMethod.Post))
+            {
+                @Html.Hidden("Haber_id",Model.Haber.id)
+                <div class="form-group" style="background-color:#73735c">
+
+                    <small style="color:red">@ViewBag.myerror</small>
+
+                    <textarea cols="30" rows="3" id="Text" name="Text" class="form-control" placeholder="Yorum yaz"
+                              maxlength="255"></textarea>
+                </div>
+                <div class="form-group text-right">
+                    <button class="btn" type="submit" style="background-color:#ff9933 ; color: white">
+                        Gönder
+                    </button>
+                </div>
+            }
+
+        }
+
+
+    </div>
+</div>

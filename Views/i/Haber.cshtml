@@ -1,0 +1,11 @@
+﻿@model TrendTeknoloji.Models.i.HaberModels
+@{
+    ViewBag.Title = "Haber";
+}
+
+
+
+@Html.Partial("_Haber", Model.Haber)
+
+@Html.Partial("_Comments", new TrendTeknoloji.Models.i.CommentModels() {Comments=Model.Comments, Haber=Model.Haber})
+
